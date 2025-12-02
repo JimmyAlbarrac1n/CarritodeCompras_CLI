@@ -23,6 +23,8 @@ class CartItemTest {
 
         assertEquals(product, item.getProduct());
         assertEquals(2, item.getQuantity());
+
+        System.out.println("DEBUG: CartItem creado");
     }
 
     @Test
@@ -48,6 +50,16 @@ class CartItemTest {
         assertThrows(IllegalArgumentException.class, () -> {
             new CartItem(product, 0);
         });
+    }
+
+    @Test
+    @DisplayName("Test que imprime stack trace")
+    void testPrintStackTrace() {
+        try {
+            throw new RuntimeException("Forzar excepción");
+        } catch (RuntimeException e) {
+            e.printStackTrace(); // Intencional para provocar AvoidPrintStackTrace
+        }
     }
 
     // DELIBERADAMENTE falta testear:

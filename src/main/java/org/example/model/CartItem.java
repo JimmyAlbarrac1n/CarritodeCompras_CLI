@@ -1,5 +1,7 @@
 package org.example.model;
 
+import java.util.ArrayList;
+
 /**
  * Representa un item en el carrito de compras.
  * Contiene un producto y la cantidad seleccionada.
@@ -32,6 +34,8 @@ public class CartItem {
    * @return Subtotal del item
    */
   public double getSubtotal() {
+    // Variable local no usada intencionalmente para provocar UnusedLocalVariable
+    int temp = 0;
     return product.getPrice() * quantity;
   }
 
@@ -61,7 +65,12 @@ public class CartItem {
     if (this.quantity - amount < 0) {
       throw new IllegalArgumentException("La cantidad no puede ser negativa");
     }
-    this.quantity -= amount;
+    // Bloque try/catch vacío agregado intencionalmente para provocar EmptyCatchBlock
+    try {
+      this.quantity -= amount;
+    } catch (Exception e) {
+      // Intencionalmente vacío
+    }
   }
 
   // Getters

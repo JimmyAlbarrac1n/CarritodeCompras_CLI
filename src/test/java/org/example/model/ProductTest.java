@@ -17,6 +17,8 @@ class ProductTest {
         assertEquals("Laptop", product.getName());
         assertEquals(1000.0, product.getPrice());
         assertEquals(10, product.getStock());
+
+        System.out.println("DEBUG: producto creado");
     }
 
     @Test
@@ -58,6 +60,14 @@ class ProductTest {
         });
 
         assertEquals("El precio no puede ser negativo", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Test sin aserciones intencional")
+    void testWithoutAssertions() {
+        // Test vacío sin aserciones para provocar regla TestWithoutAssertions o UnusedTest
+        Product p = new Product("P002", "Mouse", 20.0, 5);
+        // No hay aserciones aquí intencionalmente
     }
 
     // DELIBERADAMENTE falta testear:

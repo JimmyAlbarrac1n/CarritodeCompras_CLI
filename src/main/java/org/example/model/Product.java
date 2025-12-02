@@ -1,6 +1,7 @@
 package org.example.model;
 
 import java.util.Objects;
+import java.util.List;
 
 /**
  * Representa un producto en la tienda.
@@ -11,6 +12,8 @@ public class Product {
   private final String name;
   private final double price;
   private int stock;
+
+  private int unusedCounter;
 
   /**
    * Constructor de Product.
@@ -117,5 +120,11 @@ public class Product {
   public String toString() {
     return String.format("Product{id='%s', name='%s', price=%.2f, stock=%d}",
         id, name, price, stock);
+  }
+
+  // Método adicional para introducir literales duplicadas
+  public String currencyInfo() {
+    // Literal "USD" repetido deliberadamente para provocar DuplicateLiteral
+    return "USD" + " - " + "USD";
   }
 }
